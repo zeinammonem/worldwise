@@ -16,15 +16,16 @@ const formatDate = (date) =>
 function City() {
   const { id } = useParams();
   const { currentCity, getCity, isLoading } = useCities();
-  const { cityName, emoji, date, notes } = currentCity;
-
+  
   useEffect(
     function () {
       getCity(id);
     },
     [id]
   );
-
+  
+  const { cityName, emoji, date, notes } = currentCity;
+  
   if (isLoading) return <Spinner />;
 
   return (
